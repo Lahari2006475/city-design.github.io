@@ -10,12 +10,12 @@
             --bg-deep: #030712;
             --surface: #0f172a;
             --surface-highlight: #1e293b;
-            /* Lahari's Cyan Theme (Water/Lead) */
             --accent-primary: #06b6d4; 
             --accent-glow: rgba(6, 182, 212, 0.4);
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border: rgba(255, 255, 255, 0.08);
+            --code-bg: #09090b;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,6 @@
             color: var(--text-main);
             overflow-x: hidden;
             min-height: 100vh;
-            /* Modern ambient background (Cyan hue) */
             background: 
                 radial-gradient(circle at 0% 0%, rgba(6, 182, 212, 0.15), transparent 40%),
                 radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.1), transparent 40%),
@@ -71,9 +70,8 @@
             opacity: 0.7;
         }
         .back-btn:hover { opacity: 1; color: var(--accent-primary); }
-        .back-btn::before { content: "←"; }
 
-        /* --- PROFILE SECTION (Bento Style) --- */
+        /* --- PROFILE --- */
         .profile-grid {
             display: grid;
             grid-template-columns: 280px 1fr;
@@ -105,187 +103,206 @@
         }
 
         .avatar-box {
-            width: 120px;
-            height: 120px;
+            width: 120px; height: 120px;
             background: linear-gradient(135deg, #06b6d4, #2563eb);
             border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: 800; color: #fff;
             margin-bottom: 1.5rem;
             box-shadow: 0 0 40px var(--accent-glow);
             border: 4px solid rgba(255,255,255,0.1);
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 6px;
+            width: 8px; height: 8px; background: var(--accent-primary);
+            border-radius: 50%; display: inline-block; margin-right: 6px;
             box-shadow: 0 0 10px var(--accent-primary);
         }
 
-        .bio-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .role-label {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
+        .bio-box { display: flex; flex-direction: column; justify-content: center; }
+        .role-label { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 0.5rem; font-weight: 700; }
+        
         h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 1.5rem;
+            font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 1.5rem;
             letter-spacing: -1px;
             background: linear-gradient(to right, #fff, #94a3b8);
-            --webkit-background-clip: text;
-            --webkit-text-fill-color: transparent;
+            --webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         .bio-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            max-width: 600px;
-            border-left: 2px solid var(--accent-primary);
-            padding-left: 1.5rem;
+            font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);
+            max-width: 600px; border-left: 2px solid var(--accent-primary); padding-left: 1.5rem;
         }
 
-        /* --- PROJECTS GRID --- */
+        /* --- SYSTEMS GRID --- */
         .section-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 2rem;
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 2rem; margin-top: 2rem;
         }
         .header-line { flex: 1; height: 1px; background: var(--border); }
 
-        .projects-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
+        .systems-wrapper { display: flex; flex-direction: column; gap: 3rem; }
 
-        .tech-card {
+        .system-module {
             background: linear-gradient(180deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.4));
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 20px;
+            padding: 2.5rem;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
-        .tech-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
+        .module-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
         }
 
-        .card-top {
+        .module-title h3 { font-size: 1.8rem; color: #fff; margin-bottom: 5px; }
+        .status-pill {
+            font-size: 0.75rem; padding: 6px 14px; border-radius: 100px;
+            background: rgba(6, 182, 212, 0.1); color: var(--accent-primary);
+            border: 1px solid rgba(6, 182, 212, 0.2); text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* --- EXPANDABLE SECTIONS (NEW) --- */
+        .expandable-item {
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .expandable-item:hover {
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .expandable-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
+            align-items: center;
+            transition: background 0.2s;
         }
 
-        .status-pill {
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 100px;
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-primary);
-            border: 1px solid rgba(6, 182, 212, 0.2);
+        .expandable-header:hover {
+            background: rgba(255,255,255,0.03);
         }
 
-        .tech-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .problem-title {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .tech-card p {
+        .problem-title::before {
+            content: '>';
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+            font-family: "JetBrains Mono";
+            font-weight: bold;
+            transition: transform 0.3s;
         }
 
-        /* --- TERMINAL STYLE CODE BLOCK --- */
+        .expand-icon {
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            transition: transform 0.3s ease;
+        }
+
+        /* Active State Styles */
+        .expandable-item.active {
+            border-color: var(--accent-primary);
+            background: rgba(6, 182, 212, 0.05);
+        }
+
+        .expandable-item.active .problem-title::before {
+            color: var(--accent-primary);
+            transform: rotate(90deg);
+        }
+
+        .expandable-item.active .expand-icon {
+            transform: rotate(45deg); /* Turns + to x */
+        }
+
+        .expandable-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .inner-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 0.5rem;
+            padding-top: 1.5rem;
+        }
+
+        .problem-desc {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .solution-tag {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        /* --- TERMINAL CODE BLOCK --- */
         .terminal-block {
-            background: #09090b;
+            background: var(--code-bg);
             border-radius: 8px;
             border: 1px solid #27272a;
             overflow: hidden;
-            margin: 1.5rem 0;
+            margin: 1rem 0 2rem 0;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .terminal-header {
             background: #18181b;
             padding: 8px 12px;
-            display: flex;
-            gap: 6px;
+            display: flex; gap: 6px;
             border-bottom: 1px solid #27272a;
         }
 
         .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .red { background: #ef4444; }
-        .yellow { background: #eab308; }
-        .green { background: #22c55e; }
+        .red { background: #ef4444; } .yellow { background: #eab308; } .green { background: #22c55e; }
 
         .terminal-code {
             padding: 1.5rem;
             font-family: "JetBrains Mono", monospace;
             font-size: 0.8rem;
-            color: #67e8f9; /* Cyan text */
-            line-height: 1.5;
+            color: #a5f3fc; 
+            line-height: 1.6;
             overflow-x: auto;
+            white-space: pre;
         }
         
-        .keyword { color: #c084fc; } 
-        .function { color: #60a5fa; } 
-        .comment { color: #64748b; font-style: italic; }
+        .keyword { color: #c084fc; } .function { color: #60a5fa; } .comment { color: #64748b; font-style: italic; }
 
-        /* --- TAGS --- */
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: auto;
+        /* --- SDG TAGS --- */
+        .sdg-container {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; padding-top: 1rem;
+            border-top: 1px dashed var(--border);
         }
         
-        .tech-tag {
-            font-size: 0.75rem;
-            color: #cbd5e1;
-            background: rgba(255,255,255,0.05);
-            padding: 6px 12px;
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.2s;
-        }
-        
-        .tech-tag:hover {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-primary);
-            border-color: rgba(6, 182, 212, 0.3);
+        .sdg-tag {
+            font-size: 0.75rem; color: #fce7f3;
+            background: linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.1));
+            padding: 6px 12px; border-radius: 6px;
+            border: 1px solid rgba(236, 72, 153, 0.3); font-weight: 600;
         }
 
         @media(max-width: 800px) {
@@ -301,8 +318,8 @@
 
     <div class="container">
         <nav class="nav-bar">
-            <a href="index.html" class="back-btn mono">SYSTEM GRID</a>
-            <div class="path-display mono">root/users/lahari_b</div>
+            <a href="#" class="back-btn mono">SYSTEM GRID</a>
+            <div class="path-display mono">root/users/lahari_b/projects</div>
         </nav>
 
         <section class="profile-grid">
@@ -318,7 +335,7 @@
                 <div class="role-label mono">PROJECT LEAD</div>
                 <h1 style="color: #030712;">Lahari Bankar</h1>
                 <p class="bio-text">
-                    Specializing in algorithmic optimization for utility networks. Currently leading the development of the smart water distribution grid using Minimum Spanning Trees (MST) to reduce infrastructure costs by 15%.
+                    Specializing in algorithmic optimization for utility networks. Currently leading the development of smart grid solutions using MST, Graph Algorithms, and Predictive Modeling to reduce infrastructure costs and improve efficiency.
                 </p>
             </div>
         </section>
@@ -328,93 +345,186 @@
             <div class="header-line"></div>
         </div>
 
-        <div class="projects-wrapper">
+        <div class="systems-wrapper">
 
-            <div class="tech-card">
-                <div class="card-top">
-                    <div style="font-size: 2rem;">💧</div>
-                    <span class="status-pill mono">Distribution</span>
-                </div>
-                <h3>Tourism</h3>
-                <p>
-                   Reasearch on progress....
-                </p>
-                
-                <div class="terminal-block">
-                    <div class="terminal-header">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
+            <div class="system-module">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span style="font-size: 2rem; display:block; margin-bottom:5px;">💧</span>
+                        <h3 class="mono">Tourism Optimization</h3>
                     </div>
-                    <div class="terminal-code">
-<span class="keyword">void</span> <span class="function">primMST</span>(int graph[V][V]) {
-  <span class="keyword">int</span> parent[V]; 
-  <span class="keyword">int</span> key[V]; 
-  <span class="keyword">bool</span> mstSet[V]; 
-  
-  <span class="comment">// Logic to minimize weight...</span>
-  <span class="keyword">for</span> (<span class="keyword">int</span> count = 0; count < V-1; count++) {
-      <span class="function">pickMinimumKey</span>(key, mstSet);
-  }
-}
+                    <span class="status-pill mono">ACTIVE DEV</span>
+                </div>
+
+                <div class="expandable-item">
+                    <div class="expandable-header">
+                        <h4 class="problem-title mono">01. Navigation & Route Finding</h4>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="expandable-body">
+                        <div class="inner-content">
+                            <p class="problem-desc">
+                                <strong style="color: #f1f5f9;">Issue:</strong> Finding the shortest path between the Stadium and Waterfalls is difficult without an optimized system, leading to delays for tourists.
+                            </p>
+                            <div class="solution-tag mono">SOL: Graph Algorithms (BFS & DFS)</div>
+                            <p class="problem-desc">
+                                <strong>BFS</strong> is used for calculating the shortest path from the city entrance to key spots.<br>
+                                <strong>DFS</strong> is used for exploring all connected areas like walking trails.
+                            </p>
+                            <div class="terminal-block">
+                                <div class="terminal-header">
+                                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                                    <span style="font-size:0.7rem; color: #52525b; margin-left: 10px;">bfs_route.cpp</span>
+                                </div>
+                                <div class="terminal-code">
+<span class="comment">// BFS for Shortest Path</span>
+<span class="keyword">void</span> <span class="function">BFS</span>(Node start) {
+    Queue q;
+    start.visited = <span class="keyword">true</span>;
+    q.<span class="function">add</span>(start);
+
+    <span class="keyword">while</span> (!q.isEmpty()) {
+        Node current = q.<span class="function">removeFront</span>();
+        <span class="function">visit</span>(current);
+        <span class="comment">// Visit neighbors logic...</span>
+    }
+}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tag-container mono">
-                    <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
+                <div class="expandable-item">
+                    <div class="expandable-header">
+                        <h4 class="problem-title mono">02. Data Management (Hotels)</h4>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="expandable-body">
+                        <div class="inner-content">
+                            <p class="problem-desc">
+                                <strong style="color: #f1f5f9;">Issue:</strong> Tourists struggle to find cheapest hotels or top-rated lodges due to unorganized data.
+                            </p>
+                            <div class="solution-tag mono">SOL: Sorting Algorithms (Quick Sort)</div>
+                            <p class="problem-desc">
+                                We organize hotels by price, rating, or distance using Quick Sort for optimal performance.
+                            </p>
+                            <div class="terminal-block">
+                                <div class="terminal-header">
+                                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                                    <span style="font-size:0.7rem; color: #52525b; margin-left: 10px;">sort_hotels.cpp</span>
+                                </div>
+                                <div class="terminal-code">
+<span class="keyword">function</span> <span class="function">QuickSortHotels</span>(Hotels[], low, high) {
+    <span class="keyword">if</span> (low < high) {
+        <span class="keyword">int</span> pIndex = <span class="function">Partition</span>(Hotels, low, high);
+        <span class="function">QuickSortHotels</span>(Hotels, low, pIndex - 1);
+        <span class="function">QuickSortHotels</span>(Hotels, pIndex + 1, high);
+    }
+}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="expandable-item">
+                    <div class="expandable-header">
+                        <h4 class="problem-title mono">03. Crowd Prediction</h4>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="expandable-body">
+                        <div class="inner-content">
+                            <p class="problem-desc">
+                                <strong style="color: #f1f5f9;">Issue:</strong> Need to predict peak tourist days to manage security resources.
+                            </p>
+                            <div class="solution-tag mono">SOL: Heaps & String Matching</div>
+                            <p class="problem-desc">
+                                1. <strong>Max-Heap:</strong> Identify peak tourist days from historical data.<br>
+                                2. <strong>String Matching:</strong> Analyze search queries to predict trends.
+                            </p>
+                            <div class="sdg-container mono">
+                                <div class="sdg-tag">SDG 8: Economy</div>
+                                <div class="sdg-tag">SDG 9: Innovation</div>
+                                <div class="sdg-tag">SDG 11: Sustainablity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="tech-card">
-                <div class="card-top">
-                    <div style="font-size: 2rem;">🌊</div>
-                    <span class="status-pill mono">SIMULATION</span>
+            <div class="system-module">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span style="font-size: 2rem; display:block; margin-bottom:5px;">⚡</span>
+                        <h3 class="mono">Hydro-Power Station</h3>
+                    </div>
+                    <span class="status-pill mono">R&D PHASE</span>
                 </div>
-                <h3>Temple and Church </h3>
-                <p>
-                    Reasearch on progress....
-                <div class="tag-container mono">
-                     <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                </div>
-            </div>
 
-            <div class="tech-card">
-                <div class="card-top">
-                    <div style="font-size: 2rem;">🔎</div>
-                    <span class="status-pill mono">R&D</span>
+                <div class="expandable-item">
+                    <div class="expandable-header">
+                        <h4 class="problem-title mono">01. Network Flow Optimization</h4>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="expandable-body">
+                        <div class="inner-content">
+                            <p class="problem-desc">
+                                <strong style="color: #f1f5f9;">Issue:</strong> Inefficient water flow distribution reduces power generation capacity.
+                            </p>
+                            <div class="solution-tag mono">SOL: Max-Flow Min-Cut</div>
+                            <div class="terminal-block">
+                                <div class="terminal-header">
+                                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                                    <span style="font-size:0.7rem; color: #52525b; margin-left: 10px;">flow_opt.cpp</span>
+                                </div>
+                                <div class="terminal-code">
+<span class="comment">// Ford-Fulkerson Algorithm</span>
+<span class="keyword">int</span> <span class="function">maxFlow</span>(int graph[][V], int s, int t) {
+    <span class="keyword">int</span> u, v;
+    <span class="keyword">while</span> (<span class="function">bfs</span>(rGraph, s, t, parent)) {
+        <span class="comment">// Update path flow...</span>
+    }
+}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3>Forest</h3>
-                <p>
-                    Reasearch on progres...
-                </p>
-                <div class="tag-container mono">
-                      <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                </div>
-            </div>
 
-              <div class="tech-card">
-                <div class="card-top">
-                    <div style="font-size: 2rem;">🔎</div>
-                    <span class="status-pill mono">R&D</span>
+                <div class="expandable-item">
+                    <div class="expandable-header">
+                        <h4 class="problem-title mono">02. Turbine Efficiency</h4>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="expandable-body">
+                        <div class="inner-content">
+                            <p class="problem-desc">Research in progress for load balancing protocols...</p>
+                        </div>
+                    </div>
                 </div>
-                <h3>Hydro-Power Station</h3>
-                <p>
-                    Reasearch on progres...
-                </p>
-                <div class="tag-container mono">
-                      <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                    <span class="tech-tag">Analyzing....</span>
-                </div>
-            </div>
 
-        </div> </div>
+            </div> 
 
+        </div> 
+    </div>
+
+    <script>
+        // Simple script to handle the accordion effect
+        document.querySelectorAll('.expandable-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const body = item.querySelector('.expandable-body');
+
+                // Toggle active class
+                item.classList.toggle('active');
+
+                // Animate Height
+                if (item.classList.contains('active')) {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                } else {
+                    body.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
